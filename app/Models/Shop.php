@@ -30,6 +30,6 @@ class Shop extends Model
     //     'created_at' => 'date'
     // ];
     public function branch(): HasMany {
-        return $this->hasMany(Branch::class, 'id');
+        return $this->hasMany(Branch::class);
     }
 }

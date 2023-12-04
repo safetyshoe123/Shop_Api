@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -12,10 +13,9 @@ class Branch extends Model
 
     protected $table = 'branch';
     protected $primaryKey = 'id';
-    protected $foreignKey = 'fshop_id';
 
     protected $fillable = [
-        'fshop_id',
+        'shop_id',
         'shopId',
         'branchId',
         'branchName',
@@ -34,6 +34,10 @@ class Branch extends Model
     ];
 
     public function shop(): BelongsTo{
-        return $this->belongsTo(Shop::class, 'fshop_id');
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function employee(): HasMany {
+        return $this->hasMany(User::class);
     }
 }

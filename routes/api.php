@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BranchController;
-use App\Http\Controllers\API\EmployeeController;
 use App\Http\Controllers\API\ShopController;
 
 /*
@@ -28,15 +27,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 
-Route::controller(EmployeeController::class)->group(function () {
-    Route::post('empLogin', 'employeeLogin');
-    Route::post('empRegister', 'employeeRegister');
-});
-
 Route::controller(BranchController::class)->group(function () {
              //Alias    function name
     Route::get('indexBranch', 'indexBranch');
-    Route::get('showBranch/{id}', 'showBranchId');
+    Route::get('showBranch/{branchId}', 'showBranchId');
     Route::post('createBranch', 'createBranch');
     Route::post('updateBranch/{id}', 'updateBranch');
     Route::delete('deleteBranch/{id}', 'deleteBranch');
@@ -45,7 +39,7 @@ Route::controller(BranchController::class)->group(function () {
 Route::controller(ShopController::class)->group(function () {
               //Alias   function name
     Route::get('index', 'indexShop');
-    Route::get('show/{name}', 'showShopId');
+    Route::get('show/{shopId}', 'showShopId');
     Route::post('create', 'createShop');
     Route::post('update/{id}', 'updateShop');
     Route::delete('delete/{id}', 'deleteShop');

@@ -22,8 +22,9 @@ class BranchController extends Controller
         return response()->json([$data]);
     }
 
-    public function showBranchId(string $id) {
-        $branch_id = Branch::find($id);
+    public function showBranchId(string $branchId) {
+        // $branch_id = Branch::find($id);
+        $branch_id = Branch::where('branchId', $branchId)->first();
 
         if($branch_id == null) {
             return response()->json(['message' => 'Nothing is found!']);
@@ -41,7 +42,7 @@ class BranchController extends Controller
 
     public function createBranch(Request $request) {
         $request->validate([
-            'fshop_id' => 'required',
+            // 'fshop_id' => 'required',
             'shopId' => 'required',
             'branchName' => 'required|string|max:50',
             'address1'  => 'required|string|max:50',
@@ -53,7 +54,7 @@ class BranchController extends Controller
         ]);
 
         $branch = Branch::create([
-            'fshop_id' => $request->fshop_id,
+            'shop_id' => $request->shop_id,
             'shopId' => $request->shopId,
             'branchId' => Str::random(10),
             'branchName' => $request->branchName,

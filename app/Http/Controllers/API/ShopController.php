@@ -18,18 +18,21 @@ class ShopController extends Controller
 
     public function indexShop() {
         $data = Shop::all();
+        // Working relationship
+        // $data = Shop::find(2)->branch;
         if(empty($data)) {
             return response()->json([
                 'message' => 'No Shop is listed',
                 'data' => $data,
             ]);
         }
-        // $data = Shop::find(1)->branch;
         return response()->json([$data]);
     }
 
     public function showShopId(string $shopId) {
-        $shop_id = Shop::find($shopId);
+        $shop_id = Shop::where('shopId', $shopId)->first();
+
+        return response()->json([$shop_id]);
 
         if($shop_id == null) {
             return response()->json(['message' => 'Nothing to show!'], 401);

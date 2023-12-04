@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -71,5 +73,8 @@ class User extends Authenticatable implements JWTSubject
         return [
             'empId'=>$this->empId,
         ];
+    }
+    public function branch_emp(): BelongsTo{
+        return $this->belongsTo(Branch::class);
     }
 }
