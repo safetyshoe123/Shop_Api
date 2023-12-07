@@ -54,7 +54,7 @@ class BranchController extends Controller
         ]);
 
         $branch = Branch::create([
-            'shop_id' => $request->shop_id,
+            // 'shop_id' => $request->shop_id,
             'shopId' => $request->shopId,
             'branchId' => Str::random(10),
             'branchName' => $request->branchName,

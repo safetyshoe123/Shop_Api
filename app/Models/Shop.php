@@ -29,7 +29,7 @@ class Shop extends Model
     // protected $hidden = [
     //     'created_at' => 'date'
     // ];
-    public function branch(): HasMany {
-        return $this->hasMany(Branch::class);
-    }
+    // public function branch(): HasMany {
+    //     return $this->hasMany(Branch::class);
+    // }
 }
