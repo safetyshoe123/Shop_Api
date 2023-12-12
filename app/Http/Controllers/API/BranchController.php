@@ -7,6 +7,8 @@ use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use function PHPUnit\Framework\isEmpty;
+
 class BranchController extends Controller
 {
     public function indexBranch() {
@@ -19,18 +21,18 @@ class BranchController extends Controller
                 'data' => $data,
             ]);
         }
-        return response()->json([$data]);
+        return response()->json($data);
     }
 
     public function showBranchId(string $branchId) {
-        // $branch_id = Branch::find($id);
-        $branch_id = Branch::where('branchId', $branchId)->first();
-
+        //get() is used for getting all data with the same ID
+        //first() is used for getting the first data that is the same ID
+        $branch_id = Branch::where('shopId', $branchId)->get();
+        
         if($branch_id == null) {
             return response()->json(['message' => 'Nothing is found!']);
         }
-
-        return response()->json([$branch_id]);
+        return response()->json($branch_id);
     }
 
     /**
