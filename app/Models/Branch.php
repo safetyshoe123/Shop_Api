@@ -15,7 +15,6 @@ class Branch extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'shop_id',
         'shopId',
         'branchId',
         'branchName',
@@ -33,11 +32,11 @@ class Branch extends Model
         'dateOpened' => 'date:Y-m-d',
     ];
 
-    public function shop(): BelongsTo{
-        return $this->belongsTo(Shop::class);
-    }
+    // public function shop(): BelongsTo{
+    //     return $this->belongsTo(Shop::class);
+    // }
 
-    public function employee(): HasMany {
-        return $this->hasMany(User::class);
-    }
+    // public function employee(): HasMany {
+    //     return $this->hasMany(User::class);
+    // }
 }

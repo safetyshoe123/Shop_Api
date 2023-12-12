@@ -74,7 +74,7 @@ class User extends Authenticatable implements JWTSubject
             'empId'=>$this->empId,
         ];
     }
-    public function branch_emp(): BelongsTo{
-        return $this->belongsTo(Branch::class);
-    }
+    // public function branch_emp(): BelongsTo{
+    //     return $this->belongsTo(Branch::class);
+    // }
 }

@@ -27,11 +27,13 @@ class ShopController extends Controller
             ]);
         }
         
-        return response()->json([$data]);
+        return response()->json($data);
     }
 
     public function showShopId(string $shopId) {
         $shop_id = Shop::where('shopId', $shopId)->first();
+
+      
 
         if($shop_id == null) {
             return response()->json(['message' => 'Nothing to show!'], 401);
