@@ -27,6 +27,7 @@ class ShopController extends Controller
                 'data' => $data,
             ]);
         }
+        
         return response()->json($data);
     }
 
