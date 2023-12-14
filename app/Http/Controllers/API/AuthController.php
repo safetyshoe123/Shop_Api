@@ -31,15 +31,15 @@ class AuthController extends Controller
         //     'empId' => 'required|string|max:10|min:6',
         //     'password' => 'required|string',
         // ]);
-        $this->validate($request,[
+        $this->validate($request, [
             'empId' => 'required|string|max:10|min:6',
             'password' => 'required|string',
         ]);
         // $credentials = $request->only('email', 'password');
         $credentials = ['empId' => $request->empId, 'password' => $request->password];
         $token = Auth::attempt($credentials);
-        
-        
+
+
         if (!$token) {
             return response()->json([
                 'message' => 'Unauthorized',
@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-        if($user === null) {
+        if ($user === null) {
             return response()->json([
                 'message' => 'User doest not exist',
             ], 401);
@@ -64,7 +64,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            // 'empId' =>'required|string|max:10',
+            'empId' => 'required|string|max:10',
             'lastName' => 'required|string|max:30',
             'firstName' => 'required|string|max:30',
             'middleName' => 'required|string|max:30',
@@ -77,7 +77,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::create([
-            'empId' => Str::random(10),
+            'empId' => $request->empId,
             'lastName' => $request->lastName,
             'firstName' => $request->firstName,
             'middleName' => $request->middleName,
