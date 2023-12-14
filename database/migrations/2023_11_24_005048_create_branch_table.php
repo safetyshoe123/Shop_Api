@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('branch', function (Blueprint $table) {
             $table->id();
-            // $table->bigInteger('shop_id');
             $table->string('shopId', 10);
             $table->string('branchId', 10);
             $table->string('branchName', 50);

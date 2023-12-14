@@ -16,11 +16,12 @@ class ShopController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function indexShop() {
+    public function indexShop()
+    {
         $data = Shop::all();
         // Working relationship
         // $data = Shop::find(2)->branch;
-        if(empty($data)) {
+        if (empty($data)) {
             return response()->json([
                 'message' => 'No Shop is listed',
                 'data' => $data,
@@ -30,20 +31,21 @@ class ShopController extends Controller
         return response()->json($data);
     }
 
-    public function showShopId(string $shopId) {
-        $shop_id = Shop::where('shopId', $shopId)->first();
+    public function showShopId(string $shopId)
+    {
+        $shop_id = Shop::where('shopId', $shopId)->get();
 
-      
-
-        if($shop_id == null) {
+        if ($shop_id == null) {
             return response()->json(['message' => 'Nothing to show!'], 401);
         }
 
         return response()->json([$shop_id]);
     }
 
-    public function createShop(Request $request) {
+    public function createShop(Request $request)
+    {
         $request->validate([
+            'shopId' => 'required|string|max:10',
             'shopName' => 'required|string|max:50',
             'address1' => 'required|string|max:50',
             'address2' => 'required|string|max:50',
@@ -52,7 +54,7 @@ class ShopController extends Controller
         ]);
 
         $shop = Shop::create([
-            'shopId' => Str::random(10),
+            'shopId' => $request->shopId,
             'shopName' => $request->shopName,
             'address1' => $request->address1,
             'address2' => $request->address2,
@@ -60,16 +62,17 @@ class ShopController extends Controller
             'remark' => $request->remark,
         ]);
 
-        return response()->json([
-            'message' => 'Shop created successfully',
-            'shop' => $shop,
-        ]);
+        return response()->json(
+            // 'message' => 'Shop created successfully',
+            $shop,
+        );
     }
 
-    public function updateShop(Request $request, $id) {
+    public function updateShop(Request $request, $id)
+    {
 
         $shop = Shop::find($id);
-        if($shop == null) {
+        if ($shop == null) {
             return response()->json(['message' => 'Something went wrong! Can\'t update shop..'], 401);
         } else {
             $shop->update($request->all());
@@ -77,9 +80,10 @@ class ShopController extends Controller
         }
     }
 
-    public function deleteShop($id) {
+    public function deleteShop($id)
+    {
         $delete_shop = Shop::find($id);
-        if($delete_shop == null) {
+        if ($delete_shop == null) {
             return response()->json(['message' => 'Something went wrong! Can\'t delete shop..'], 401);
         }
         $delete_shop->delete();
