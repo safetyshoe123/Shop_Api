@@ -7,8 +7,6 @@ use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-use function PHPUnit\Framework\isEmpty;
-
 class BranchController extends Controller
 {
     public function indexBranch() {
