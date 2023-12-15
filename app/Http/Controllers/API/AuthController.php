@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class AuthController extends Controller
@@ -16,14 +17,22 @@ class AuthController extends Controller
     // protected $firstName;
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'getUser', 'logout']]);
         // $this->middleware('guest')->except('logout');
         // $this->firstName = 'firstName';
     }
 
-    // public function firstName(){
-    //     return $this->firstName;
-    // }
+    //restriction working for superAdmin *view example*
+    public function getUser(User $user)
+    {
+        if (Gate::allows('isSuperAdmin', $user)) {
+
+            $status = User::where('status', 'superAdmin')->get();
+
+            return response()->json($status);
+        }
+        // $this->authorize('isSuperAdmin');
+    }
 
     public function login(Request $request)
     {
@@ -32,11 +41,16 @@ class AuthController extends Controller
         //     'password' => 'required|string',
         // ]);
         $this->validate($request, [
-            'empId' => 'required|string|max:10|min:6',
+            'branchId' => 'required|string|max:10',
+            'empId' => 'required|string|max:10|min:4',
             'password' => 'required|string',
         ]);
         // $credentials = $request->only('email', 'password');
-        $credentials = ['empId' => $request->empId, 'password' => $request->password];
+        $credentials = [
+            'branchId' => $request->branchId,
+            'empId' => $request->empId,
+            'password' => $request->password,
+        ];
         $token = Auth::attempt($credentials);
 
 
@@ -64,12 +78,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
+            'branchId' => 'required|string|max:10',
             'empId' => 'required|string|max:10',
             'lastName' => 'required|string|max:30',
             'firstName' => 'required|string|max:30',
             'middleName' => 'required|string|max:30',
             'password' => 'required|string|min:6',
-            'status' => 'required|string|max:10',
+            'status' => 'required|max:10',
             'dateHired' => 'required|date',
             'salary' => 'required',
             'notes' => 'required|string|max:255',
@@ -77,6 +92,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::create([
+            'branchId' => $request->branchId,
             'empId' => $request->empId,
             'lastName' => $request->lastName,
             'firstName' => $request->firstName,

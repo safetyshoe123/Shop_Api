@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::controller(AuthController::class)->group(function () {
+    Route::get('getUser', 'getUser');
     Route::post('login', 'login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
@@ -28,7 +29,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::controller(BranchController::class)->group(function () {
-             //Alias    function name
+    //Alias    function name
     Route::get('indexBranch', 'indexBranch');
     Route::get('showBranch/{branchId}', 'showBranchId');
     Route::post('createBranch', 'createBranch');
@@ -37,7 +38,7 @@ Route::controller(BranchController::class)->group(function () {
 });
 
 Route::controller(ShopController::class)->group(function () {
-              //Alias   function name
+    //Alias   function name
     Route::get('index', 'indexShop');
     Route::get('show/{shopId}', 'showShopId');
     Route::post('create', 'createShop');
