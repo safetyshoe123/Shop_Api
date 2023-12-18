@@ -30,12 +30,12 @@ class AuthServiceProvider extends ServiceProvider
         // $this->registerPolicies();
         //
         Gate::define('isSuperAdmin', function (User $user) {
-            return $user->status == 'superAdmin'
-                ? Response::allow()
-                : Response::deny('You are not authorized');
+            return $user->status == 'superAdmin';
+            // ? Response::allow()
+            // : Response::deny('You are not authorized');
         });
         // Gate::define('update-shop', [AuthorizationPolicy::class, 'update']);
-        Gate::define('getUser', [AuthorizationPolicy::class, 'getUser']);
+        // Gate::define('getUser', [AuthorizationPolicy::class, 'getUser']);
 
         Gate::define('isAdmin', function ($user) {
             return $user->status == 'admin';
@@ -45,8 +45,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->status == 'manager';
         });
 
-        Gate::define('isEmployee', function ($user) {
-            return $user->status == 'employee';
-        });
+        // Gate::define('isEmployee', function ($user) {
+        //     return $user->status == 'employee';
+        // });
     }
 }
