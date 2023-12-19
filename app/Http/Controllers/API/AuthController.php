@@ -77,7 +77,8 @@ class AuthController extends Controller
 
     public function register(Request $request, User $user)
     {
-        if (
+        if
+        (
             Gate::allows('isSuperAdmin', $user) ||
             Gate::allows('isAdmin', $user) ||
             Gate::allows('isManager', $user)
