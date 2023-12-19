@@ -13,20 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            // $table->string('shopId', 10)->nullable();
+            $table->string('branchId', 10);
             $table->string('empId', 10);
             $table->string('lastName', 30);
             $table->string('firstName', 30);
             $table->string('middleName', 30);
             $table->string('password');
-            $table->string('status', 10);
+            $table->enum('status',  ['superAdmin', 'admin', 'manager', 'employee'])->default('employee');
             $table->date('dateHired');
             $table->decimal('salary', 10, 2);
             $table->string('notes', 255);
             $table->string('remark', 255);
             $table->rememberToken();
             $table->timestamps();
-
         });
     }
 
