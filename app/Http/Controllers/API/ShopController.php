@@ -20,7 +20,7 @@ class ShopController extends Controller
 
     public function indexShop(User $user)
     {
-        if (Gate::allows('isSuperAdmin', $user)) {
+        if (Gate::allow('isSuperAdmin', $user)) {
             $data = Shop::all();
             if (empty($data)) {
                 return response()->json([
@@ -30,7 +30,7 @@ class ShopController extends Controller
             }
             return response()->json($data, 200);
         } else {
-            return response()->json(['message' => 'Access Denied!'], 403);
+            return response()->json(['message' => 'Access Denied!', 403]);
         }
 
         // return response()->json($data);
@@ -49,7 +49,7 @@ class ShopController extends Controller
 
     public function createShop(Request $request, User $user)
     {
-        if (Gate::allows('isSuperAdmin', $user)) {
+        if (Gate::allow('isSuperAdmin', $user)) {
             $request->validate([
                 'shopId' => 'required|string|max:10',
                 'shopName' => 'required|string|max:50',
@@ -70,7 +70,7 @@ class ShopController extends Controller
 
             return response()->json($shop, 200);
         } else {
-            return response()->json(['message' => 'Access Denied! You are not authorized..'], 403);
+            return response()->json(['message' => 'Access Denied!'], 403);
         }
     }
 

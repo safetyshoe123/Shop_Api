@@ -37,11 +37,11 @@ class AuthServiceProvider extends ServiceProvider
         // Gate::define('update-shop', [AuthorizationPolicy::class, 'update']);
         // Gate::define('getUser', [AuthorizationPolicy::class, 'getUser']);
 
-        Gate::define('isAdmin', function (User $user) {
+        Gate::define('isAdmin', function ($user) {
             return $user->status == 'admin';
         });
 
-        Gate::define('isManager', function (User $user) {
+        Gate::define('isManager', function ($user) {
             return $user->status == 'manager';
         });
 
