@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -12,11 +11,7 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: [
-      
-      "retro",
-    
-    ],
+    themes: ["retro",],
   },
   plugins: [require ("daisyui")],
 }
