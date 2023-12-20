@@ -18,4 +18,13 @@ Route::get('/', function () {
 });
 Route::get('/admin', function () {
     return view('admin');
+<<<<<<< HEAD
+=======
+});
+Route::get('/home', function () {
+    return view('home');
+});
+Route::get('/regshop', function () {
+    return view('regshop');
+>>>>>>> views
 });
