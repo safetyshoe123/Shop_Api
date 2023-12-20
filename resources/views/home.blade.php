@@ -1,3 +1,4 @@
+
 @extends('layout.app')
 @section('content')
   
@@ -8,7 +9,6 @@
             Shop Dashboard
         </h1>
         <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
-            <div class="flex flex-nowrap lg:ml-40 md:ml-10 ml-5 ">
 
                 <div class="card w-96 glass hover:shadow-xl overflow-hidden">
                     <figure><img
@@ -66,23 +66,17 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex flex-nowrap lg:ml-10 md:ml-20 ml-10 ">
                     <div class="card w-96 glass hover:shadow-xl overflow-hidden">
                         <figure><img
                                 src="https://static.vecteezy.com/system/resources/previews/000/616/494/original/home-logo-and-symbols-vector.jpg"
                                 alt="car!" /></figure>
                         <div class="card-body">
+
                             <h2 class="card-title">Branch 5</h2>
-                            <p>Address</p>
-                            <div class="card-actions justify-end">
-                                <button class="btn btn-primary">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- </div> -->
             </div>
         </div>
+
     @endsection
