@@ -38,13 +38,13 @@ class ShopController extends Controller
 
     public function showShopId(string $shopId)
     {
-        $shop_id = Shop::where('shopId', $shopId)->get();
+        $shop_id = Shop::where('shopId', $shopId)->first();
 
         if ($shop_id == null) {
             return response()->json(['message' => 'Nothing to show!'], 401);
         }
 
-        return response()->json([$shop_id, 200]);
+        return response()->json($shop_id, 200);
     }
 
     public function createShop(Request $request, User $user)

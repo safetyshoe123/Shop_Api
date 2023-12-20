@@ -14,17 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
 Route::get('/admin', function () {
-    return view('admin');
-<<<<<<< HEAD
-=======
+    return view('auth.superadmin');
 });
+
 Route::get('/home', function () {
     return view('home');
 });
+
 Route::get('/regshop', function () {
     return view('regshop');
->>>>>>> views
 });

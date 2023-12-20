@@ -11,7 +11,7 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: ["retro",],
+    themes: ["retro","dracula"],
   },
   plugins: [require ("daisyui")],
 }

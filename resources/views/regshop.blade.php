@@ -135,4 +135,4 @@
 </div>
 </section>
 </body>
-</html>
+</html><div class="artboard artboard-horizontal phone-6">Register Shop</div>
