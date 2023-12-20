@@ -1,6 +1,5 @@
 
 @extends('layout.auth')
-@extends('layout.app')
 
 @section('content')
     <div class="hero min-h-screen  bg-base-200">
