@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=6, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <title>Document</title>
+    <title>Home</title>
     
     <!-- @vite('resources/js/app.js') -->
    
 
 </head>
 <body>
-<div class="flex p-20 justify-center">
+<!-- <div class="flex p-20 justify-center"> -->
 
 </div>
 <!-- <div class="flex p-20 justify-center"> -->
 <!-- component -->
-<div class="flex flex-col m-auto p-auto">
+<div class="flex flex-col m-auto p-auto py-10">
 <h1 class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800"
       >
         Shop Dashboard

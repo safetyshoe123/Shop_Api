@@ -22,3 +22,6 @@ Route::get('/admin', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/regshop', function () {
+    return view('regshop');
+});
