@@ -7,8 +7,9 @@
     <div class="container-fluid" style="padding: 0;">
         @yield('content')
     </div>
-    @include('components.footer')
+   
+
 
 </body>
-
+@include('components.footer')
 </html>
