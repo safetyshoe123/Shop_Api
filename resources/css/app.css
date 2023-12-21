@@ -24,3 +24,7 @@
 /* ::-webkit-scrollbar-thumb:hover {
     background: #555;
 } */
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+/* ::-webkit-scrollbar {
+    display: auto;
+} */

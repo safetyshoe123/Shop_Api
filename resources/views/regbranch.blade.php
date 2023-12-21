@@ -11,7 +11,7 @@
         <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
             <div
                 class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg border-0">
-                <div class="rounded-t  mb-0 px-6 py-6">
+                <div class="rounded-t  mb-0 px-6">
                     <div class="text-center flex justify-between">
                         <h6 class="text-xl font-bold">
                             Register Branch
