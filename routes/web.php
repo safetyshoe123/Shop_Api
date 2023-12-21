@@ -36,3 +36,12 @@ Route::get('/regemp', function () {
     return view('regemp');
 });
 
+Route::get('/admindash', function () {
+    return view('admindash');
+});
+
+Route::get('/regshop', function () {
+    return view('regshop');
+});
+
+
