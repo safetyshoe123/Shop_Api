@@ -24,6 +24,15 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/regshop', function () {
-    return view('regshop');
+Route::get('/regbranch', function () {
+    return view('regbranch');
 });
+
+Route::get('/branch', function () {
+    return view('branch');
+});
+
+Route::get('/regemp', function () {
+    return view('regemp');
+});
+

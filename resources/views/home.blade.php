@@ -3,8 +3,8 @@
 @section('content')
   
     <!-- component -->
-    <div class="flex flex-col m-auto p-auto">
-        <h1 class="flex py-10 lg:px-40 md:px-10 px-5 lg:mx-50 md:mx-20 mx-5 font-bold text-4xl">
+    <div class="min-h-screen">
+        <h1 class="flex py-20 lg:px-40 md:px-10 px-5 lg:mx-50 md:mx-20 mx-5 font-bold text-4xl">
             Shop Dashboard
         </h1>
         <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
