@@ -9,7 +9,7 @@
         </h1>
             <div class="overflow-y-scroll h-43 overflow-x-scroll">
 
-  <table class="table flex py-10 px-20 lg:px-40 md:px-10 px-5 lg:mx-50 md:mx-20 mx-5 font-bold text-1xl">
+  <table class="table flex py-10 px-20 lg:px-40 md:px-10 lg:mx-50 md:mx-20 mx-5 font-bold text-1xl">
     <!-- head -->
     
     <thead>

@@ -21,23 +21,23 @@ Route::get('/admin', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('pages.home');
 });
 
 Route::get('/regbranch', function () {
-    return view('regbranch');
+    return view('pages.regbranch');
 });
 
 Route::get('/branch', function () {
-    return view('branch');
+    return view('pages.branch');
 });
 
 Route::get('/regemp', function () {
-    return view('regemp');
+    return view('pages.regemp');
 });
 
 Route::get('/admindash', function () {
-    return view('admindash');
+    return view('pages.admindash');
 });
 
 Route::get('/regshop', function () {
