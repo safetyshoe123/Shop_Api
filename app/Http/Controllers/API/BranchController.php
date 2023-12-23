@@ -65,6 +65,25 @@ class BranchController extends Controller
                 'type'  => 'required|string|max:1',
                 'notes'  => 'required|string|max:255',
                 'remark'  => 'required|string|max:255',
+            ],[
+                'shopId.required' => 'Shop ID is required.',
+                'branchName.required' => 'Branch Name is required.',
+                'branchName.string' => 'Branch Name must be a string.',
+                'branchName.max' => 'Branch Name must not exceed 50 characters.',
+                'address1.required' => 'Address Line 1 is required.',
+                'address1.string' => 'Address Line 1 must be a string.',
+                'address1.max' => 'Address Line 1 must not exceed 50 characters.',
+                'address2.required' => 'Address Line 2 is required.',
+                'address2.string' => 'Address Line 2 must be a string.',
+                'address2.max' => 'Address Line 2 must not exceed 50 characters.',
+                'dateOpened.required' => 'Date Opened is required.',
+                'dateOpened.date' => 'Date Opened must be a valid date.',
+                'type.required' => 'Type is required.',
+                'notes.required' => 'Notes are required.',
+                'notes.max' => 'Notes must not exceed 255 characters.',
+                'remark.required' => 'Remark is required.',
+                'remark.string' => 'Remark must be a string.',
+                'remark.max' => 'Remark must not exceed 255 characters.',
             ]);
 
             $branch = Branch::create([
@@ -101,6 +120,25 @@ class BranchController extends Controller
                 'type'  => 'required|string|max:1',
                 'notes'  => 'required|string|max:255',
                 'remark'  => 'required|string|max:255',
+            ],[
+                'branchName.required' => 'The branch name is required.',
+                'branchName.string' => 'The branch name must be a string.',
+                'branchName.max' => 'The branch name must not exceed 50 characters.',
+                'address1.required' => 'Address line 1 is required.',
+                'address1.string' => 'Address line 1 must be a string.',
+                'address1.max' => 'Address line 1 must not exceed 50 characters.',
+                'address2.required' => 'Address line 2 is required.',
+                'address2.string' => 'Address line 2 must be a string.',
+                'address2.max' => 'Address line 2 must not exceed 50 characters.',
+                'dateOpened.required' => 'The date opened is required.',
+                'dateOpened.date' => 'The date opened must be a valid date.',
+                'type.required' => 'The type is required.',
+                'notes.required' => 'Notes are required.',
+                'notes.string' => 'Notes must be a string.',
+                'notes.max' => 'Notes must not exceed 255 characters.',
+                'remark.required' => 'Remark is required.',
+                'remark.string' => 'Remark must be a string.',
+                'remark.max' => 'Remark must not exceed 255 characters.',
             ]);
 
             $branch = Branch::find($id);
