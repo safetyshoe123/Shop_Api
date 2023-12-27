@@ -44,7 +44,16 @@ class AuthController extends Controller
             'branchId' => 'required|string|max:10',
             'empId' => 'required|string|max:10|min:4',
             'password' => 'required|string',
-        ]);
+        ], [
+            'branchId.required' => 'Branch ID is required.',
+            'branchId.max' => 'Branch ID must not exceed 10 characters.',
+            'empId.required' => 'Employee ID is required.',
+            'empId.max' => 'Employee ID must not exceed 10 characters.',
+            'empId.min' => 'Employee ID must be at least 4 characters.',
+            'password.required' => 'Password is required.',
+     
+        ]
+    );
         // $credentials = $request->only('email', 'password');
         $credentials = [
             'branchId' => $request->branchId,
@@ -94,6 +103,36 @@ class AuthController extends Controller
                 'salary' => 'required',
                 'notes' => 'required|string|max:255',
                 'remark' => 'required|string|max:255',
+            ],[
+                'branchId.required' => 'Branch ID is required.',
+           
+                'branchId.max' => 'Branch ID must not exceed 10 characters.',
+                'empId.required' => 'Employee ID is required.',
+           
+                'empId.max' => 'Employee ID must not exceed 10 characters.',
+                'lastName.required' => 'Last Name is required.',
+                'lastName.string' => 'Last Name must be a string.',
+                'lastName.max' => 'Last Name must not exceed 30 characters.',
+                'firstName.required' => 'First Name is required.',
+                'firstName.string' => 'First Name must be a string.',
+                'firstName.max' => 'First Name must not exceed 30 characters.',
+                'middleName.required' => 'Middle Name is required.',
+                'middleName.string' => 'Middle Name must be a string.',
+                'middleName.max' => 'Middle Name must not exceed 30 characters.',
+                'password.required' => 'Password is required.',
+        
+                'password.min' => 'Password must be at least 6 characters.',
+                'status.required' => 'Status is required.',
+               
+                'dateHired.required' => 'Date Hired is required.',
+                'dateHired.date' => 'Date Hired must be a valid date.',
+                'salary.required' => 'Salary is required.',
+                'notes.required' => 'Notes are required.',
+                'notes.string' => 'Notes must be a string.',
+                'notes.max' => 'Notes must not exceed 255 characters.',
+                'remark.required' => 'Remark is required.',
+                'remark.string' => 'Remark must be a string.',
+                'remark.max' => 'Remark must not exceed 255 characters.',
             ]);
 
             $user = User::create([
