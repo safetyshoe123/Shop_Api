@@ -104,10 +104,10 @@ class BranchController extends Controller
                 'remark' => $request->remark,
             ]);
 
-            return response()->json([
-                'message' => 'Branch created successfully',
-                'branch' => $branch,
-            ]);
+            return response()->json(
+                $branch,
+                200
+            );
         } else {
             return response()->json(['message' => 'You are not authorize!'], 403);
         }

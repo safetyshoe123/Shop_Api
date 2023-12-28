@@ -70,8 +70,7 @@ class AuthController extends Controller
 
     public function register(Request $request, User $user)
     {
-        if
-        (
+        if (
             Gate::allows('isSuperAdmin', $user) ||
             Gate::allows('isAdmin', $user) ||
             Gate::allows('isManager', $user)
@@ -137,10 +136,7 @@ class AuthController extends Controller
                 'remark' => $request->remark,
             ]);
 
-            return response()->json([
-                'message' => 'User created successfully',
-                'user' => $user
-            ], 200);
+            return response()->json($user, 200);
         } else {
             return response()->json(['message' => 'Access Denied! You are not authorized.'], 403);
         }
