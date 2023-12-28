@@ -58,7 +58,8 @@ class BranchController extends Controller
             $request->validate(
                 [
                     // 'fshop_id' => 'required',
-                    'shopId' => 'required',
+                    'shopId' => 'required|string|max:10',
+                    'branchId' => 'required|string|max:10',
                     'branchName' => 'required|string|max:50',
                     'address1'  => 'required|string|max:50',
                     'address2'  => 'required|string|max:50',
@@ -92,7 +93,7 @@ class BranchController extends Controller
             $branch = Branch::create([
                 // 'shop_id' => $request->shop_id,
                 'shopId' => $request->shopId,
-                'branchId' => Str::random(10),
+                'branchId' => $request->branchId,
                 'branchName' => $request->branchName,
                 'address1' => $request->address1,
                 'address2' => $request->address2,
