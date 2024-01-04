@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Shop;
 use App\Policies\AuthorizationPolicy;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;

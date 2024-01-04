@@ -32,8 +32,6 @@ class ShopController extends Controller
         } else {
             return response()->json(['message' => 'Access Denied!'], 403);
         }
-
-        // return response()->json($data);
     }
 
     public function showShopId(string $shopId)
@@ -50,14 +48,36 @@ class ShopController extends Controller
     public function createShop(Request $request, User $user)
     {
         if (Gate::allows('isSuperAdmin', $user)) {
-            $request->validate([
-                'shopId' => 'required|string|max:10',
-                'shopName' => 'required|string|max:50',
-                'address1' => 'required|string|max:50',
-                'address2' => 'required|string|max:50',
-                'notes' => 'required|string|max:255',
-                'remark' => 'required|string|max:255',
-            ]);
+            $request->validate(
+                [
+                    'shopId' => 'required|string|max:10',
+                    'shopName' => 'required|string|max:50',
+                    'address1' => 'required|string|max:50',
+                    'address2' => 'required|string|max:50',
+                    'notes' => 'required|string|max:255',
+                    'remark' => 'required|string|max:255',
+                ],
+                // [
+                //     'shopId.required' => 'Shop ID is required.',
+                //     'shopId.string' => 'Shop ID must be a string.',
+                //     'shopId.max' => 'Shop ID must not exceed 10 characters.',
+                //     'shopName.required' => 'Shop Name is required.',
+                //     'shopName.string' => 'Shop Name must be a string.',
+                //     'shopName.max' => 'Shop Name must not exceed 50 characters.',
+                //     'address1.required' => 'Address Line 1 is required.',
+                //     'address1.string' => 'Address Line 1 must be a string.',
+                //     'address1.max' => 'Address Line 1 must not exceed 50 characters.',
+                //     'address2.required' => 'Address Line 2 is required.',
+                //     'address2.string' => 'Address Line 2 must be a string.',
+                //     'address2.max' => 'Address Line 2 must not exceed 50 characters.',
+                //     'notes.required' => 'Notes are required.',
+                //     'notes.string' => 'Notes must be a string.',
+                //     'notes.max' => 'Notes must not exceed 255 characters.',
+                //     'remark.required' => 'Remark is required.',
+                //     'remark.string' => 'Remark must be a string.',
+                //     'remark.max' => 'Remark must not exceed 255 characters.',
+                // ],
+            );
 
             $shop = Shop::create([
                 'shopId' => $request->shopId,
