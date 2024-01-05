@@ -54,6 +54,11 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+        if ($user->status == 'inactive') {
+            return response()->json([
+                'message' => 'You cannot login! You are inactive..',
+            ], 401);
+        }
         if ($user === null) {
             return response()->json([
                 'message' => 'User doest not exist',
@@ -84,6 +89,8 @@ class AuthController extends Controller
                     'middleName' => 'required|string|max:30',
                     'password' => 'required|string|min:6',
                     'status' => 'required|max:10',
+                    'role' => 'required',
+                    'restriction' => 'required',
                     'dateHired' => 'required|date',
                     'salary' => 'required',
                     'notes' => 'required|string|max:255',
@@ -130,6 +137,8 @@ class AuthController extends Controller
                 'middleName' => $request->middleName,
                 'password' => Hash::make($request->password),
                 'status' => $request->status,
+                'role' => $request->role,
+                'restriction' => $request->restriction,
                 'dateHired' => $request->dateHired,
                 'salary' => $request->salary,
                 'notes' => $request->notes,

@@ -32,6 +32,8 @@ class User extends Authenticatable implements JWTSubject
         'lastnName',
         'password',
         'status',
+        'role',
+        'restriction',
         'dateHired',
         'salary',
         'notes',
@@ -54,10 +56,9 @@ class User extends Authenticatable implements JWTSubject
      * @var array<string, string>
      */
     protected $casts = [
-        // 'shopId' => 'array',
-        // 'empId' => 'array',
         'password' => 'hashed',
         'dateHired' => 'date:Y-m-d',
+        'restriction' => 'array',
     ];
 
     public function getJWTIdentifier()

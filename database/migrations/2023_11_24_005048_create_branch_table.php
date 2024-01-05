@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('branch', function (Blueprint $table) {
             $table->id();
             $table->string('shopId', 10);
-            $table->string('branchId', 10);
+            $table->string('branchId', 10)->unique();
             $table->string('branchName', 50);
             $table->string('address1', 50);
             $table->string('address2', 50);
