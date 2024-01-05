@@ -44,7 +44,7 @@ class AuthController extends Controller
             'empId' => $request->empId,
             'password' => $request->password,
         ];
-        $token = Auth::attempt($credentials);
+        $token = Auth::attempt($credentials, $remember = true);
 
 
         if (!$token) {
@@ -75,11 +75,11 @@ class AuthController extends Controller
 
     public function register(Request $request, User $user)
     {
-        if (
-            Gate::allows('isSuperAdmin', $user) ||
-            Gate::allows('isAdmin', $user) ||
-            Gate::allows('isManager', $user)
-        ) {
+        // if (
+        //     Gate::allows('isSuperAdmin', $user) ||
+        //     Gate::allows('isAdmin', $user) ||
+        //     Gate::allows('isManager', $user)
+        // ) {
             $request->validate(
                 [
                     'branchId' => 'required|string|max:10',
@@ -89,8 +89,7 @@ class AuthController extends Controller
                     'middleName' => 'required|string|max:30',
                     'password' => 'required|string|min:6',
                     'status' => 'required|max:10',
-                    'role' => 'required',
-                    'restriction' => 'required',
+                    // 'role' => 'required',
                     'dateHired' => 'required|date',
                     'salary' => 'required',
                     'notes' => 'required|string|max:255',
@@ -146,9 +145,9 @@ class AuthController extends Controller
             ]);
 
             return response()->json($user, 200);
-        } else {
-            return response()->json(['message' => 'Access Denied! You are not authorized.'], 403);
-        }
+        // } else {
+        //     return response()->json(['message' => 'Access Denied! You are not authorized.'], 403);
+        // }
     }
 
     public function logout()

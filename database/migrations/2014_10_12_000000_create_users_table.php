@@ -20,13 +20,13 @@ return new class extends Migration
             $table->string('middleName', 30);
             $table->string('password');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->enum('role',  ['superAdmin', 'admin', 'manager', 'employee'])->default('employee');
-            $table->json('restriction');
+            // $table->enum('role',  ['superAdmin', 'admin', 'manager', 'employee'])->default('employee');
+            $table->json('restriction')->nullable();
             $table->date('dateHired');
             $table->decimal('salary', 10, 2);
             $table->string('notes', 255);
             $table->string('remark', 255);
-            // $table->rememberToken();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
