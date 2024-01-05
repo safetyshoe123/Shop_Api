@@ -18,7 +18,7 @@ class AuthorizationPolicy
     // }
     public function getUser(User $user)
     {
-        return $user->status == 'superAdmin';
+        return $user->role == 'superAdmin';
     }
 
     /**

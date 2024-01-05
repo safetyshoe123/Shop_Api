@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\Shop;
+use App\Models\Branch;
 
 class BranchPolicy
 {

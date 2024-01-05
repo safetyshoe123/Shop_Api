@@ -19,12 +19,14 @@ return new class extends Migration
             $table->string('firstName', 30);
             $table->string('middleName', 30);
             $table->string('password');
-            $table->enum('status',  ['superAdmin', 'admin', 'manager', 'employee'])->default('employee');
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('role',  ['superAdmin', 'admin', 'manager', 'employee'])->default('employee');
+            $table->json('restriction');
             $table->date('dateHired');
             $table->decimal('salary', 10, 2);
             $table->string('notes', 255);
             $table->string('remark', 255);
-            $table->rememberToken();
+            // $table->rememberToken();
             $table->timestamps();
         });
     }

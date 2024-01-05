@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         // $this->registerPolicies();
         //
         Gate::define('isSuperAdmin', function (User $user) {
-            return $user->status == 'superAdmin';
+            return $user->role == 'superAdmin';
             // ? Response::allow()
             // : Response::deny('You are not authorized');
         });
@@ -37,11 +37,11 @@ class AuthServiceProvider extends ServiceProvider
         // Gate::define('getUser', [AuthorizationPolicy::class, 'getUser']);
 
         Gate::define('isAdmin', function ($user) {
-            return $user->status == 'admin';
+            return $user->role == 'admin';
         });
 
         Gate::define('isManager', function ($user) {
-            return $user->status == 'manager';
+            return $user->role == 'manager';
         });
 
         // Gate::define('isEmployee', function ($user) {
