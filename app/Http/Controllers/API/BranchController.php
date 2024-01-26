@@ -123,12 +123,12 @@ class BranchController extends Controller
             ],
         );
 
-        $branch = Branch::find($id);
+        $branch = Branch::where('branchId', '=', $id)->first();
         if ($branch == null) {
-            return response()->json(['message' => 'Something went wrong! Can\'t update shop branch..']);
+            return response()->json(['message' => 'Cannot find shop'], 404);
         } else {
             $branch->update($request->all());
-            return response()->json([$branch]);
+            return response()->json(['message' => 'Update branch successfully!', 'data' => $branch], 200);
         }
         // } else {
         //     return response()->json(['message' => 'You are not authorize!'], 403);
