@@ -20,8 +20,7 @@ class BranchController extends Controller
         if (empty($data)) {
             return response()->json([
                 'message' => 'No Branch is listed',
-                'data' => $data,
-            ]);
+            ], 204);
         }
         return response()->json($data, 200);
         // } else {
@@ -36,7 +35,7 @@ class BranchController extends Controller
         $branch_id = Branch::where('branchId', $branchId)->first();
 
         if ($branch_id == null) {
-            return response()->json(['message' => 'Nothing is found!']);
+            return response()->json(['message' => 'Not found!'], 404);
         }
         return response()->json($branch_id);
         // } else {
@@ -140,10 +139,10 @@ class BranchController extends Controller
         // if (Gate::allows('isSuperAdmin', $user)) {
         $delete_branch = Branch::find($id);
         if ($delete_branch == null) {
-            return response()->json(['message' => 'Something went wrong! Can\'t delete shop branch..']);
+            return response()->json(['message' => 'Something went wrong! Can\'t delete shop branch..'], 500);
         }
         $delete_branch->delete();
-        return response()->json(['message' => 'Branch successfully deleted!', 200]);
+        return response()->json(['message' => 'Branch successfully deleted!'], 200);
         // } else {
         //     return response()->json(['message' => 'You are not authorize!'], 403);
         // }
