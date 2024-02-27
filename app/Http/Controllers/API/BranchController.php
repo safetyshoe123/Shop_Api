@@ -37,7 +37,7 @@ class BranchController extends Controller
         if ($branch_id == null) {
             return response()->json(['message' => 'Not found!'], 404);
         }
-        return response()->json($branch_id);
+        return response()->json($branch_id, 200);
         // } else {
         //     return response()->json(['message' => 'You are not authorize!'], 403);
         // }
@@ -98,10 +98,7 @@ class BranchController extends Controller
             'remark' => $request->remark,
         ]);
 
-        return response()->json(
-            $branch,
-            200
-        );
+        return response()->json($branch, 200);
         // } else {
         //     return response()->json(['message' => 'You are not authorize!'], 403);
         // }
@@ -125,10 +122,11 @@ class BranchController extends Controller
         $branch = Branch::where('branchId', '=', $id)->first();
         if ($branch == null) {
             return response()->json(['message' => 'Cannot find shop'], 404);
-        } else {
-            $branch->update($request->all());
-            return response()->json(['message' => 'Update branch successfully!', 'data' => $branch], 200);
         }
+
+        $branch->update($request->all());
+        return response()->json(['message' => 'Update branch successfully!', 'data' => $branch], 200);
+
         // } else {
         //     return response()->json(['message' => 'You are not authorize!'], 403);
         // }
