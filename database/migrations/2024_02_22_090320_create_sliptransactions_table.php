@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('custId', 10);
             $table->string('receivedBy', 10);
             $table->dateTime('receivedDateTime');
-            $table->string('slipno', 15);
+            $table->string('slipNo', 15);
             $table->string('serviceType', 1);
-            $table->decimal('loadsqty', 10, 2);
+            $table->decimal('loadsQty', 10, 2);
             $table->decimal('loadsAmount', 10, 2);
             $table->decimal('loadsTotal', 10, 2);
             $table->decimal('detergentQty', 10, 2);
@@ -31,10 +31,10 @@ return new class extends Migration
             $table->decimal('fabconQty', 10, 2);
             $table->decimal('fabconAmount', 10, 2);
             $table->decimal('fabconTotal', 10, 2);
-            $table->decimal('bleachAty', 10, 2);
+            $table->decimal('bleachQty', 10, 2);
             $table->decimal('bleachAmount', 10, 2);
             $table->decimal('bleachTotal', 10, 2);
-            $table->decimal('bounceAty', 10, 2);
+            $table->decimal('bounceQty', 10, 2);
             $table->decimal('bounceAmount', 10, 2);
             $table->decimal('bounceTotal', 10, 2);
             $table->decimal('babadQty', 10, 2);

@@ -43,6 +43,7 @@ class SlipTransactionsController extends Controller
             'custId' => 'required|string|max:10',
             'receivedBy' => 'required|string|max:10',
             'receivedDateTime' => 'required',
+            //YYYY-MMMM-DD-BranchId-001
             'slipno' => 'required|string|max:15',
             'serviceType' => 'required|string|max:1',
             'loadsqty' => 'required|decimal',
@@ -57,7 +58,7 @@ class SlipTransactionsController extends Controller
             'bleachAty' => 'required|decimal',
             'bleachAmount' => 'required|decimal',
             'bleachTotal' => 'required|decimal',
-            'bounceAty' => 'required|decimal',
+            'bounceQty' => 'required|decimal',
             'bounceAmount' => 'required|decimal',
             'bounceTotal' => 'required|decimal',
             'babadQty' => 'required|decimal',
@@ -94,7 +95,7 @@ class SlipTransactionsController extends Controller
             'bleachAty' => $request->bleachAty,
             'bleachAmount' => $request->bleachAmount,
             'bleachTotal' => $request->bleachTotal,
-            'bounceAty' => $request->bounceAty,
+            'bounceQty' => $request->bounceAty,
             'bounceAmount' => $request->bounceAmount,
             'bounceTotal' => $request->bounceTotal,
             'babadQty' => $request->babadQty,
@@ -111,7 +112,7 @@ class SlipTransactionsController extends Controller
 
         return response()->json($slipTransaction, 200);
     }
-    public function undateSlipTransaction(Request $request, $id)
+    public function updateSlipTransaction(Request $request, $id)
     {
         $request->validate([
             'shopId' => 'required|string|max:10',
@@ -121,9 +122,9 @@ class SlipTransactionsController extends Controller
             'custId' => 'required|string|max:10',
             'receivedBy' => 'required|string|max:10',
             'receivedDateTime' => 'required',
-            'slipno' => 'required|string|max:15',
+            'slipNo' => 'required|string|max:15',
             'serviceType' => 'required|string|max:1',
-            'loadsqty' => 'required|decimal',
+            'loadsQty' => 'required|decimal',
             'loadsAmount' => 'required|decimal',
             'loadsTotal' => 'required|decimal',
             'detergentQty' => 'required|decimal',
@@ -132,10 +133,10 @@ class SlipTransactionsController extends Controller
             'fabconQty' => 'required|decimal',
             'fabconAmount' => 'required|decimal',
             'fabconTotal' => 'required|decimal',
-            'bleachAty' => 'required|decimal',
+            'bleachQty' => 'required|decimal',
             'bleachAmount' => 'required|decimal',
             'bleachTotal' => 'required|decimal',
-            'bounceAty' => 'required|decimal',
+            'bounceQty' => 'required|decimal',
             'bounceAmount' => 'required|decimal',
             'bounceTotal' => 'required|decimal',
             'babadQty' => 'required|decimal',
